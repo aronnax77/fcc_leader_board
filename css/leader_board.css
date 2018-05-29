@@ -1,0 +1,24 @@
+/* style images for avatar */
+img {
+  width: 40px;
+  height: 40px;
+}
+
+/* set the caption side for the table */
+table {
+  caption-side: top;
+
+}
+
+/* move the brand logo away from the edge of the window */
+.brand-logo {
+  margin-left: 20px;
+}
+
+.material-icons {
+  vertical-align: -10px;
+}
+
+.spacer {
+  height: 100px;
+}

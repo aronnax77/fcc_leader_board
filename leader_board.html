@@ -5,33 +5,12 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <!-- Import our own stylesheet -->
+  <link rel="stylesheet" href="css/leader_board.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>FCC Leader Board</title>
-  <style>
-    img {
-      width: 40px;
-      height: 40px;
-    }
-
-    table {
-      caption-side: top;
-    }
-
-    tr {
-      text-align: center;
-    }
-
-    .brand-logo {
-      margin-left: 20px;
-    }
-
-    img.logo {
-      height: 40px;
-    }
-
-  </style>
 </head>
 <body>
 
@@ -42,36 +21,40 @@
   </nav>
 
 
-  <div class="container">
-    <table class="center">
-      <caption><h2>Leader Board</h2></caption>
+  <div id="app" class="container">
+    <table class="striped centered responsive-table">
+      <caption><h4>Leader Board</h4></caption>
         <thead class="green darken-3 white-text">
           <tr>
               <th></th>
               <th>Avatar</th>
               <th>Name</th>
-              <th>Recent</th>
-              <th>All time</th>
+              <th><a href="#" @click="getRecent" :class="{'yellow-text': recentEnabled, 'white-text': !recentEnabled}">Recent<i class="material-icons">keyboard_arrow_down</i></a></th>
+              <th><a href="#" @click="getAlltime" :class="{'yellow-text': !recentEnabled, 'white-text': recentEnabled}">All time<i class="material-icons">keyboard_arrow_down</i></a></th>
           </tr>
         </thead>
 
         <tbody>
-          <tr>
-            <td>1</td>
-            <td><img src="https://avatars2.githubusercontent.com/u/36899653?v=4" alt="">
-            </td>
-            <td><a href="#">iulius83</a></td>
-            <td>45</td>
-            <td>45</td>
+
+          <tr v-for="(user, index) in userData">
+            <td>{{ index + 1 }}</td>
+            <td><img :src="user.img" alt="avatar"></td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.recent }}</td>
+            <td>{{ user.alltime }}</td>
           </tr>
 
         </tbody>
       </table>
-  </div>
+
+  </div><!-- container -->
+
+  <div class="spacer"></div>
 
   <!--JavaScript at end of body for optimized loading-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-  <!--<script src="js/leader_board.js"></script>-->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/leader_board.js"></script>
 
 </body>
 </html>
