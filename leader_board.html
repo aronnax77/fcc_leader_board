@@ -1,3 +1,9 @@
+<!-- Author: Richard Myatt
+     Date: 30 May 2018
+
+     An exercise in data visualization and a first use of materialize.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,16 +20,20 @@
 </head>
 <body>
 
+  <!-- give our app a nice header -->
   <nav>
     <div class="nav-wrapper green darken-3">
-      <a href="" class="brand-logo white-text">Freecodecamp</a>
+      <a href="" class="brand-logo white-text">freecodecamp</a>
     </div>
   </nav>
 
+  <!-- provide a spacer between the header and the leader board -->
+  <div class="spacer1"></div>
 
+  <!-- use the materialize container class and make this div our vue.js app -->
   <div id="app" class="container">
     <table class="striped centered responsive-table">
-      <caption><h4>Leader Board</h4></caption>
+      <caption><h5>Leader Board</h5></caption>
         <thead class="green darken-3 white-text">
           <tr>
               <th></th>
@@ -35,7 +45,7 @@
         </thead>
 
         <tbody>
-
+          <!-- use vue.js to generate the rows of data -->
           <tr v-for="(user, index) in userData">
             <td>{{ index + 1 }}</td>
             <td><img :src="user.img" alt="avatar"></td>
@@ -49,11 +59,12 @@
 
   </div><!-- container -->
 
-  <div class="spacer"></div>
+  <!-- provide a spacer at the base of the page -->
+  <div class="spacer2"></div>
 
   <!--JavaScript at end of body for optimized loading-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
   <script src="js/leader_board.js"></script>
 
 </body>
